@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            text-align: center;
+            margin: 100px;
+            
+        }
+
+        #login-container {
+            position: absolute;
+            max-width: 400px;
+            /* align-items: center;
+            justify-content: center; */
+            margin: 0 auto;
+            margin-top: 20px;
+            left: 140px;
+            background-color: black;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            height: 360px; 
+        }
+
+        .image1{
+            left: 50px;
+            margin-top: 10px;
+        }
+
+        #login-form{
+            position: relative;
+            top: 25px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            width: 300px;
+            height: 40px;
+        }
+
+        #login-btn {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 300px;
+            height: 40px ;
+
+        }
+
+        #forgot-password {
+            color: #007bff;
+            text-decoration: none;
+            margin-top: 10px;
+            display: block;
+        }
+        #container {
+            background-color:#424543;
+            height: 80vh;
+            width: 50%;
+            display: flex;
+            flex-direction: row;
+            margin:0 auto; 
+            align-items: center;
+            justify-content: center;
+            /* text-align: center; */
+            position: relative;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="login-container">
+        
+            <img class="image1" src="logo.png" width="300px" height="100px" alt="Description of the image">
+            
+            <!-- div. -->
+            <form id="login-form" method="post" onsubmit="return validateEmail()">
+                <label for="username"></label>
+                <input type="text" id="username" name="username" placeholder="Username" required>
+                <br>
+                <br>
+    
+                <label for="password"></label>
+                <input type="password" id="password" name="password"placeholder="Password" required>
+                <br>
+                <br>
+    
+                <!-- <button type="button" value="Submit" id="login-btn" onclick="validateEmail()">Login</button> -->
+                <button type="submit" value="Submit" id="login-btn">Login</button>
+                <p>
+                <a href="#" id="forgot-password">Forgot Password?</a>
+                </p>
+            </form>
+        </div>
+    </div>
+    
+
+    <script>
+        function validateEmail(){
+            var username = document.forms["login-form"]["username"].value;
+            var password = document.forms["login-form"]["password"].value;
+
+            var emailPattern = /^[a-zA-Z0-9+_.-]+@[a-zA-Z.a-zA-Z]+$/;
+            var passwordPattern = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d@]+$/;
+            var flag1 = false;
+            var flag = false;
+
+            if(!emailPattern.test(username)){
+               alert("Invalid Email Format"); 
+               return false;
+            }
+            else
+            {
+                if(!passwordPattern.test(password)){
+                    alert("Invalid Password Format"); 
+                    return false;
+                }
+                else{
+                    window.location.href='task-1.html';
+                }
+            }
+
+
+
+        }
+        // function validatePassword(){
+            
+        // }
+    </script>
+</body>
+</html>
